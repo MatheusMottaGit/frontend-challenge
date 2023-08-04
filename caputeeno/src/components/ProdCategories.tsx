@@ -1,15 +1,23 @@
+'use client'
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/components/ui/select'
-import { ChevronDown } from 'lucide-react'
+import { useFilterContext } from '@/hooks/useFilterContext'
+import { Categories } from '@/types/filter'
 import React from 'react'
 
 const ProdCategories = () => {
 
+  const { setCategory } = useFilterContext()
+
   const selectOptions = [
-    { title: 'Novidades', value: 'Novidades', id: 1 },
-    { title: 'Preço: Maior-menor', value: 'Preço: Maior-menor', id: 2 },
-    { title: 'Preço: Menor-maior', value: 'Preço: Menor-maior', id: 3 },
-    { title: 'Mais vendidos', value: 'Mais vendidos', id: 4 },
+    { id: 1, title: 'Novidades', value: 'Novidades', category: Categories.NEWEST },
+    { id: 2, title: 'Preço: Maior-menor', value: 'Preço: Maior-menor', category: Categories.HIGHER },
+    { id: 3, title: 'Preço: Menor-maior', value: 'Preço: Menor-maior', category: Categories.LOWER },
+    { id: 4, title: 'Mais vendidos', value: 'Mais vendidos', category: Categories.MOST },
   ]
+
+  function changeCategory(category: Categories) {
+    setCategory(category)
+  }
 
   return (
     <Select>
@@ -21,7 +29,7 @@ const ProdCategories = () => {
         {
           selectOptions.map(select => {
             return (
-              <SelectItem key={select.id} value={select.value}>
+              <SelectItem key={select.id} value={select.value} onClick={() => { changeCategory(select.category) }}>
                 {select.title}
               </SelectItem>
             )
