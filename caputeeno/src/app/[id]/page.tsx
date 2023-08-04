@@ -1,6 +1,7 @@
 'use client'
 import React from 'react'
 import BackButton from '@/components/BackButton'
+import Image from 'next/image'
 import { ShoppingBag } from 'lucide-react'
 import { useUniqueProd } from '@/hooks/useUniqueProd'
 
