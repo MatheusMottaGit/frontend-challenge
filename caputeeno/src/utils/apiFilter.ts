@@ -9,15 +9,15 @@ export function getTypes(type: Types) {
 
 export function getCategories(category: Categories) {
   if (category === Categories.NEWEST) return { field: "created_at", order: "ASC" }
-  if (category === Categories.HIGHER) return { field: "price_in-cents", order: "ASC" }
+  if (category === Categories.HIGHER) return { field: "price_in_cents", order: "DSC" }
   if (category === Categories.LOWER) return { field: "price_in_cents", order: "ASC" }
-  if (category === Categories.MOST) return { field: "sales", order: "DESC" }
+  if (category === Categories.MOST) return { field: "sales", order: "DSC" }
 }
 
 export function queriesAmount(type: Types, category: Categories) {
 
   if (type === Types.ALL && category === Categories.MOST) return `query {
-      allProducts(sortField: "sales", sortOrder: "DESC"){
+      allProducts(sortField: "sales", sortOrder: "DSC"){
         id
         name
         price_in_cents
@@ -29,7 +29,7 @@ export function queriesAmount(type: Types, category: Categories) {
   const selectedType = getTypes(type)
 
   return `query {
-      allProducts(filter: {category: "${selectedType}"}, sortField: "${selectedCategory?.field}", sortOrder: "${selectedCategory?.order}"){
+      allProducts(${selectedType ? `filter: {category: "${selectedType}"}` : ''}, sortField: "${selectedCategory?.field}", sortOrder: "${selectedCategory?.order}"){
         id
         name
         price_in_cents
