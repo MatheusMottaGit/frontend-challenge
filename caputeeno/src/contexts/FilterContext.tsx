@@ -6,7 +6,7 @@ export const FilterContext = createContext({
   type: Types.ALL,
   category: Categories.NEWEST,
   setType: (type: Types) => { },
-  setCategory: (categorie: Categories) => { }
+  setCategory: (category: Categories) => { }
 })
 
 export const FilterProvider = ({ children }: { children: ReactNode }) => {
