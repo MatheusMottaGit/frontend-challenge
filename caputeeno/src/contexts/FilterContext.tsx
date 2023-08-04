@@ -12,7 +12,7 @@ export const FilterContext = createContext({
 export const FilterProvider = ({ children }: { children: ReactNode }) => {
 
   const [type, setType] = useState(Types.ALL)
-  const [category, setCategory] = useState(Categories.NEWEST)
+  const [category, setCategory] = useState(Categories.MOST)
 
   return (
     <FilterContext.Provider value={{ type, setType, category, setCategory }}>
