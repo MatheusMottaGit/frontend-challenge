@@ -11,6 +11,8 @@ export interface Product {
   image_url: string
   category: string
   description: string
+  sales: string
+  created_at: string
 }
 
 export interface ProductResponse {
@@ -26,11 +28,12 @@ export const fetcher = (query: string): AxiosPromise<ProductResponse> => {
 export const useFetch = () => {
   const { type, category } = useFilterContext()
 
-  const query = queriesAmount(type)
+  const query = queriesAmount(type, category)
 
   const { data } = useQuery({
     queryFn: () => fetcher(query),
-    queryKey: ['products', type]
+    queryKey: ['products', type, category],
+    staleTime: 1000 * 60 * 1
   })
 
   return {
