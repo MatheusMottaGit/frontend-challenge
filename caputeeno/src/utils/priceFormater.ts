@@ -1,3 +1,3 @@
-export function priceFormater(price: number | undefined) {
-
+function priceFormater(priceInCents: number): string | undefined {
+  return (priceInCents / 100).toFixed(2);
 }
