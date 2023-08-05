@@ -15,6 +15,8 @@ const Prod = ({ params }: Props) => {
 
   const { prod } = useUniqueProd(params.id)
 
+  const priceInBRL = priceFormater(prod?.price_in_cents)
+
   return (
     <div className='w-full flex flex-col gap-12'>
       <BackButton />
@@ -28,7 +30,7 @@ const Prod = ({ params }: Props) => {
         <div className='flex flex-col gap-6 text-gray-400'>
           <div className='flex flex-col gap-2'>
             <h1 className='text-gray-500 text-3xl'>{prod?.name}</h1>
-            <span className='font-bold text-sm'>R$ {prod?.price_in_cents}</span>
+            <span className='font-bold text-sm'>R$ {priceInBRL}</span>
           </div>
 
           <div className='flex flex-col gap-2'>
