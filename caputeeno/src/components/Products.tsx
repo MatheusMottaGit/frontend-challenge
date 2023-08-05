@@ -13,7 +13,7 @@ const Products = () => {
       {
         products?.map((prod) => {
 
-          const priceInBRL = (prod.price_in_cents / 100)
+          const priceInBRL = priceFormater(prod.price_in_cents)
 
           return (
             <Link href={`/${prod.id}`} className='flex flex-col rounded-t-lg h-64 text-gray-400 text-sm hover:opacity-90 transition-all cursor-pointer'>
