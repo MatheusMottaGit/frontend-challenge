@@ -1,9 +1,10 @@
 'use client'
-import React from 'react'
+import React, { useContext } from 'react'
 import BackButton from '@/components/BackButton'
 import Image from 'next/image'
 import { ShoppingBag } from 'lucide-react'
 import { useUniqueProd } from '@/hooks/useUniqueProd'
+import { CartContext } from '@/contexts/CartContext'
 
 interface Props {
   params: {
@@ -15,7 +16,9 @@ const Prod = ({ params }: Props) => {
 
   const { prod } = useUniqueProd(params.id)
 
-  const priceInBRL = priceFormater(prod?.price_in_cents)
+  const { addToCart } = useContext(CartContext)
+
+  const priceInBRL = (Number(prod?.price_in_cents) / 100)
 
   return (
     <div className='w-full flex flex-col gap-12'>
