@@ -6,6 +6,7 @@ import Input from '@/components/Input'
 import { ShoppingBag } from 'lucide-react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { FilterProvider } from '@/contexts/FilterContext'
+import { CartProvider } from '@/contexts/CartContext'
 
 const stencil = Stencil({
   subsets: ['latin'],
@@ -42,12 +43,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </header>
 
         <QueryClientProvider client={client}>
-          <FilterProvider>
-            <main className='py-9 px-9 w-full h-full flex flex-col gap-6'>
-              <h1>Olá mundo</h1>
-              {children}
-            </main>
-          </FilterProvider>
+          <CartProvider>
+            <FilterProvider>
+              <main className='py-9 px-9 w-full h-full flex flex-col gap-6'>
+                {children}
+              </main>
+            </FilterProvider>
+          </CartProvider>
         </QueryClientProvider>
       </body>
     </html>
