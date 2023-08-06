@@ -44,6 +44,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <QueryClientProvider client={client}>
           <FilterProvider>
             <main className='py-9 px-9 w-full h-full flex flex-col gap-6'>
+              <h1>Olá mundo</h1>
               {children}
             </main>
           </FilterProvider>
