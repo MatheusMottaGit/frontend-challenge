@@ -13,10 +13,10 @@ const Products = () => {
       {
         products?.map((prod) => {
 
-          const priceInBRL = priceFormater(prod.price_in_cents)
+          const priceInBRL = (prod.price_in_cents / 100)
 
           return (
-            <Link href={`/${prod.id}`} className='flex flex-col rounded-t-lg h-64 text-gray-400 text-sm hover:opacity-90 transition-all cursor-pointer'>
+            <Link key={prod.id} href={`/${prod.id}`} className='flex flex-col rounded-t-lg h-64 text-gray-400 text-sm hover:opacity-90 transition-all cursor-pointer'>
               <Image
                 src={prod.image_url}
                 alt=''
