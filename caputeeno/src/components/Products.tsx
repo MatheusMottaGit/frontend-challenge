@@ -16,7 +16,7 @@ const Products = () => {
           const priceInBRL = (prod.price_in_cents / 100)
 
           return (
-            <Link key={prod.id} href={`/${prod.id}`} className='flex flex-col rounded-t-lg h-64 text-gray-400 text-sm hover:opacity-90 transition-all cursor-pointer'>
+            <Link key={prod.id} href={`/${prod.id}`} className='flex flex-col rounded-t-lg h-64 text-gray-400 text-sm hover:opacity-90 transition-all cursor-pointer min-[1629px]:w-full'>
               <Image
                 src={prod.image_url}
                 alt=''
@@ -25,7 +25,7 @@ const Products = () => {
                 className='rounded-t-lg h-full w-full'
               />
 
-              <div className='bg-white p-2 flex flex-col gap-1'>
+              <div className='bg-white p-2 flex flex-col gap-1 max-[1317px]:w-full max-[1317px]:text-xs'>
                 {prod.name}
 
                 <span className='bg-gray-200 w-full p-[0.3px]'></span>

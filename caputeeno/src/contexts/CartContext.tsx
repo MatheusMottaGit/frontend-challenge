@@ -4,7 +4,7 @@ import { ReactNode, createContext, useState } from "react";
 
 interface Cart {
   cart: Product[]
-  addToCart: (uniqueProd: Product) => void
+  addToCart: (value: Product[]) => void
 }
 
 export const CartContext = createContext({} as Cart)
@@ -13,8 +13,8 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
   const [cart, setCart] = useState<Product[]>([])
 
-  function addToCart(uniqueProd: Product) {
-
+  function addToCart(value: Product[]) {
+    localStorage.setItem('cart', JSON.stringify(value))
   }
 
   return (
