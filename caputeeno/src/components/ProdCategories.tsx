@@ -35,11 +35,12 @@ const ProdCategories = () => {
               return (
                 <DropdownMenuItem onClick={() => { changeCategory(option.category) }} className='text-gray-400 cursor-pointer flex items-center gap-1'>
                   {
-                    isSelected && (
+                    isSelected ? (
                       <Check size={15} />
+                    ) : (
+                      <span>{option.title}</span>
                     )
                   }
-                  {option.title}
                 </DropdownMenuItem>
               )
             })
