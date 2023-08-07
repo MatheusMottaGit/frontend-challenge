@@ -33,14 +33,13 @@ const ProdCategories = () => {
               const isSelected = !!selectCheck
 
               return (
-                <DropdownMenuItem onClick={() => { changeCategory(option.category) }} className='text-gray-400 cursor-pointer flex items-center gap-1'>
+                <DropdownMenuItem key={option.id} onClick={() => { changeCategory(option.category) }} className='text-gray-400 cursor-pointer flex items-center gap-1'>
                   {
-                    isSelected ? (
+                    isSelected && (
                       <Check size={15} />
-                    ) : (
-                      <span>{option.title}</span>
                     )
                   }
+                  {option.title}
                 </DropdownMenuItem>
               )
             })
