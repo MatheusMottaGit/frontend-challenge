@@ -12,7 +12,7 @@ export default function Home() {
         <ProdCategories />
       </div>
 
-      <section className="w-full grid grid-cols-6 gap-4 place-items-center">
+      <section className="w-full grid grid-cols-6 gap-4 place-items-center max-[1629px]:gap-9 max-[1177px]:grid-cols-4 max-[776px]:grid-cols-3 max-[635px]:grid-cols-2 max-[635px]:gap-y-12">
         <Products />
       </section>
     </>
